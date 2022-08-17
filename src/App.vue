@@ -2,22 +2,21 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <img src="https://cdn.wuyuan.dev/img/scratch-logo.svg"> <span class="mr-2"> </span><span class="mr-2"> </span>
-      <v-btn href="" target="_blank" text>
+      <v-btn href="https://wuyuan.dev/ourscratch-gui" target="_blank" text>
         <span class="mr-2">创作</span>
-
       </v-btn>
       <v-btn href="" target="_blank" text>
         <span class="mr-2">发现</span>
 
       </v-btn>
-      <v-btn href="" target="_blank" text>
+      <v-btn href="https://ourscratch.wuyuan.dev/about" target="_blank" text>
         <span class="mr-2">关于</span>
 
       </v-btn>
       <v-spacer></v-spacer>
 
-      <v-btn href="" target="_blank" text>
-        <span class="mr-2">加入我们！</span>
+      <v-btn href="https://github.com/sunwuyuan/ourscratch" target="_blank" text>
+        <span class="mr-2">获取您的论坛</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
@@ -45,7 +44,8 @@
                 <v-row v-bind="attrs" v-on="on">
                   <v-col v-for="card in cards" :key="card.title" :sm="card.flex">
                     <v-col>
-                      <v-card v-ripple min-height="150" @click="pu = card.link">
+                      <v-card v-ripple min-height="150"
+                        @click="ProjectSrc = card.link, ProjectTitle = card.title, ProjectName = card.name, walineurl = 'https://hjdsfakfhsa.wuyuan.dev/' + card.title">
                         <v-img :src="card.src" class="white--text align-end"
                           gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.2)" height="auto">
                           <v-card-title></v-card-title>
@@ -83,15 +83,42 @@
 
                 </v-toolbar-items>
               </v-toolbar>
+              <template>
+
+                <v-row align="center" justify="space-around">
+
+                  <v-spacer></v-spacer>
+                  <iframe v-bind:src="ProjectSrc" allowtransparency="true" width="500" height="450" frameborder="0"
+                    scrolling="no" allowfullscreen>
+                  </iframe>
 
 
-              <v-card sm="6">
-                <iframe v-bind:src="pu" allowtransparency="true" width="500" height="450" frameborder="0" scrolling="no"
-                  allowfullscreen>
-                </iframe>
-              </v-card>
+                  <v-card class="mx-auto" min-width="344">
+
+                    <v-card-text>
+                      <div>scratch3作品</div>
+                      <p class="text-h4 text--primary">
+                        {{ ProjectTitle }}
+                      </p>
+                      <p>作者</p>
+                      <div class="text--primary">
+                        {{ ProjectName }}
+                      </div>
+                    </v-card-text>
 
 
+                    <iframe v-bind:src="walineurl" width="344" height='400' frameborder="0"> </iframe>
+
+
+
+
+
+                  </v-card>
+                  <v-spacer></v-spacer>
+                </v-row>
+
+
+              </template>
 
             </v-card>
           </v-dialog>
@@ -165,7 +192,4 @@ export default {
 
 
 }
-
-
 </script>
-
