@@ -110,9 +110,6 @@
                     <iframe v-bind:src="walineurl" width="344" height='400' frameborder="0"> </iframe>
 
 
-
-
-
                   </v-card>
                   <v-spacer></v-spacer>
                 </v-row>
